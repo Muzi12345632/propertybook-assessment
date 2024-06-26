@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 
-class user extends Controller
+class UserController extends Controller
 {
     //
     /**

@@ -25,9 +25,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post("login", [AuthController::class, "login"]);
-Route::get("index", [services::class, "index"]);
-Route::get("index", [pricing::class, "index"]);
+//Route::post("login", [AuthController::class, "login"]);
+//Route::get("/services/index", [services::class, "index"]);
+//Route::get("/pricing/index", [pricing::class, "index"]);
 
 
 Route::group([

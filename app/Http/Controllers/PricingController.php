@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\services;
+use App\Models\pricing;
 
-class services extends Controller
+class PricingController extends Controller
 {
     //
     /**
@@ -14,9 +14,9 @@ class services extends Controller
     public function index()
     {
         //
-        $services = services::all();
+        $pricing = pricing::all();
 
-        return response()->json($services);
+        return response()->json($pricing);
 
     }
 
@@ -24,35 +24,32 @@ class services extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request, services $services)
+    public function store(Request $request, pricing $pricing)
     {
         //
         $validated = $request->validated([
             "author" => "required",
             "title"=> "required",
             "text" => "required", 
-            "image" => "image|nullable"
+            "image" => "required"
         ]);
 
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('images', 'public');
-            $validated['image'] = $imagePath;
-        }
 
-        $services = services::create([
+        $pricing = pricing::create([
             "author"->$request->author,
             "title"->$request->title,
             "text"->$request->text,
             "image"->$request->image,
-        ])
+        ]);
 
-        $services->user_id = auth()->user();
-        auth()->user()->services()->save($services);
+
+        $pricing->user_id = auth()->user();
+        auth()->user()->prices()->save($pricing);
 
         return response()->json([
             "status" => true,
             "message" => "Bid registered successfully",
-            "data"=> $services
+            "data"=> $pricing
         ], 200);
 
     }

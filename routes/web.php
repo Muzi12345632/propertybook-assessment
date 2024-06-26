@@ -3,6 +3,8 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PricingController;
+use App\Http\Controllers\ServicesController;
 use Inertia\Inertia;
 
 /*
@@ -24,6 +26,9 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+Route::get("/pricing/index", [PricingController::class, "index"]);
+Route::get("/services/index", [ServicesController::class, "index"]);
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
