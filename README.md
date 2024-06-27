@@ -1,6 +1,6 @@
 # How to Run/Serve Project
 
-##Install Dependencies 
+## Install Dependencies 
 
 ```
 composer update
@@ -11,7 +11,7 @@ php artisan key:generate
 
 ```
 
-Edit .env file to change database username and password
+### Edit .env file to change database username and password
 
 ```
 DB_CONNECTION=mysql
@@ -23,36 +23,43 @@ DB_PASSWORD=your_password
 
 ```
 
-### Run Migrations
+#### Run Migrations
 
 ```
 php artisan migrate
 
 ```
 
-#### Seed database
+##### Seed database
 
 ```
 php artisan db:seed
 
 ```
 
-### Install Node dependencies
+#### Install Node dependencies
 
 ```
 npm install
 
 ```
-### Compile Frontend Assets
+#### Compile Frontend Assets
 
 ```
 npm run dev
 
 ```
 
-### Serve web App
+#### Serve web App
 
 ```
 php artisan serve
 
+```
+
+Admin User Details for Login
+
+```
+email = test@example.com
+password = password
 ```
